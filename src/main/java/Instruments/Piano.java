@@ -1,13 +1,14 @@
 package Instruments;
 
 import Behaviours.IPlay;
+import Behaviours.ISell;
 
-public class Piano extends Instrument implements IPlay {
+public class Piano extends Instrument implements IPlay, ISell {
 
     private int numOfKeys;
 
-    public Piano(String brand, String colour, String material, int numOfKeys) {
-        super(brand, colour, material);
+    public Piano(String brand, String colour, String material, double boughtPrice, double sellPrice, int numOfKeys) {
+        super(brand, colour, material, boughtPrice, sellPrice);
         this.numOfKeys = numOfKeys;
     }
 
@@ -17,5 +18,9 @@ public class Piano extends Instrument implements IPlay {
 
     public String play() {
         return "Tinkle tinkle tinkle";
+    }
+
+    public double calculateMarkup() {
+        return getSellPrice() - getBoughtPrice();
     }
 }

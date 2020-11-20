@@ -11,7 +11,7 @@ public class SaxophoneTest {
 
     @Before
     public void before() {
-            saxophone = new Saxophone("Yamaha", "gold", "brass", SaxophoneType.ALTO);
+            saxophone = new Saxophone("Yamaha", "gold", "brass",120.00, 169.50, SaxophoneType.ALTO);
     }
 
     @Test
@@ -30,6 +30,16 @@ public class SaxophoneTest {
     }
 
     @Test
+    public void canGetBoughtPrice() {
+        assertEquals(120.00, saxophone.getBoughtPrice(), 0.01);
+    }
+
+    @Test
+    public void canGetSellPrice() {
+        assertEquals(169.50, saxophone.getSellPrice(), 0.01);
+    }
+
+    @Test
     public void canGetType() {
         assertEquals(SaxophoneType.ALTO, saxophone.getSaxophoneType());
     }
@@ -37,5 +47,10 @@ public class SaxophoneTest {
     @Test
     public void canPlay() {
         assertEquals("Jazzy jazz jazz jazz", saxophone.play());
+    }
+
+    @Test
+    public void checkMarkup() {
+        assertEquals(49.50, saxophone.calculateMarkup(), 0.01);
     }
 }

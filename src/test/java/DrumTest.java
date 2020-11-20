@@ -10,7 +10,7 @@ public class DrumTest {
 
     @Before
     public void before() {
-        drum = new Drum("Pearl", "deep red", "maple, steel and plastic", 18);
+        drum = new Drum("Pearl", "deep red", "maple, steel and plastic", 83.50, 99.99, 18);
     }
 
     @Test
@@ -29,6 +29,16 @@ public class DrumTest {
     }
 
     @Test
+    public void canGetBoughtPrice() {
+        assertEquals(83.50, drum.getBoughtPrice(), 0.01);
+    }
+
+    @Test
+    public void canGetSellPrice() {
+        assertEquals(99.99, drum.getSellPrice(), 0.01);
+    }
+
+    @Test
     public void canGetDiameter() {
         assertEquals(18, drum.getDiameter());
     }
@@ -36,5 +46,10 @@ public class DrumTest {
     @Test
     public void canPlay() {
         assertEquals("Boom boom boom", drum.play());
+    }
+
+    @Test
+    public void checkMarkup() {
+        assertEquals(16.49, drum.calculateMarkup(), 0.01);
     }
 }

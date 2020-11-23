@@ -69,6 +69,6 @@ public class ShopTest {
         shop.addToStock(saxophoneReeds);
         shop.addToStock(sheetMusic);
         assertEquals(11, shop.getStock().size());
-        assertEquals(728.13, shop.calculatePotentialProfit(), 0.01);
+        assertEquals(720.33, shop.calculatePotentialProfit(), 0.01);
     }
 }
